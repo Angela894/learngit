@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="vue.js" charset="utf-8"></script>
+<div id="app">
+    被子: <input type="number" v-model="priceA">
+    数量: <input type="number" v-model="numberA">
+    小计: {{sumA}}
+    冰箱: <input type="number" v-model="priceB">
+    数量: <input type="number" v-model="numberB">
+    小计: {{sumB}}
+    总计： {{sumC}}
+</div>
+<script>
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            priceA:150,
+            numberA:3,
+            priceB:150,
+            numberB:3
+        },
+        computed:{
+          sumA(){
+              return this.priceA*this.numberA;
+          },
+            sumB(){
+                return this.priceB*this.numberB;
+            },
+            sumC(){
+                return this.sumB+this.sumA;
+            }
+        }
+    })
+</script>
+</body>
+</html>

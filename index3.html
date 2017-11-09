@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="vue.js" charset="utf-8"></script>
+<div id="app">
+    {{msg}}
+    <div v-html="h"></div>
+    <div v-bind:id="msg">属性</div>
+    <button v-bind:disabled="isDisabled">按钮</button>
+    {{number+1}}
+    {{ok ? 'YES':'NO'}}
+    {{msg.split('').reverse().join('')}}
+    <div v-bind:id="'list-'+id">div</div>
+    <!--{{var a = 1;}}-->
+    <!--{{if(ok){return msg} }}-->
+    <p v-if="seen">显示</p>
+    <a v-bind:href="url">百度</a>
+    <a v-on:click="doSomething">点击</a>
+    <form v-on:submit.prevent="onSubmit">
+        <input type="submit" value="提交">
+    </form>
+    <a :href="url">百度</a>
+    <a @click="doSomething">点击</a>
+</div>
+<script>
+
+    var vm=new Vue({
+        el:'#app',
+        data:{
+            msg:'hi',
+            h:'<h1>hello</h1>',
+            isDisabled:true,
+            number:1,
+            ok:true,
+            id:3,
+            seen:true,
+            url:'http://www.baidu.com'
+        },
+        methods:{
+            doSomething(){
+                console.log('do something');
+            },
+            onSubmit(){
+                console.log('submit');
+            }
+        }
+
+    });
+
+</script>
+</body>
+</html>
